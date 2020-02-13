@@ -14,11 +14,14 @@ public class ObjectPooler : MonoBehaviour
 
     #region Singleton
 
-    public static ObjectPooler Instance;
+    public static ObjectPooler Instance { get; private set; }
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this);
     }
 
     #endregion
@@ -67,10 +70,10 @@ public class ObjectPooler : MonoBehaviour
 
     public void ReturnToPool(GameObject clone)
     {
-        string correctTag = clone.name.Replace("(Clone)", string.Empty);
+        string objectTag = clone.name.Replace("(Clone)", string.Empty);
         clone.SetActive(false);
         clone.transform.rotation = Quaternion.identity;
-        poolDictionary[correctTag].Enqueue(clone);
+        poolDictionary[objectTag].Enqueue(clone);
     }
 
     private Vector3 randSpawnLocation()
