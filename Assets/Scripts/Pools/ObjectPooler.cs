@@ -69,6 +69,7 @@ public class ObjectPooler : MonoBehaviour
     {
         string correctTag = clone.name.Replace("(Clone)", string.Empty);
         clone.SetActive(false);
+        clone.transform.rotation = Quaternion.identity;
         poolDictionary[correctTag].Enqueue(clone);
     }
 
