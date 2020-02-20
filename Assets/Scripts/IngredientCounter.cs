@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class IngredientCounter : MonoBehaviour
 {
+    #region Singleton
+    public static IngredientCounter Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
     private int patty, lettuce, tomato, cheese;
 
     public int GetPatty()
@@ -38,6 +55,7 @@ public class IngredientCounter : MonoBehaviour
     {
         cheese++;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,11 +70,26 @@ public class IngredientCounter : MonoBehaviour
         cheese = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddIngredient(string objectTag)
     {
-        
+        switch (objectTag)
+        {
+            case "patty":
+                AddPatty();
+                break;
+            case "lettuce":
+                AddLettuce();
+                break;
+            case "cheese":
+                AddCheese();
+                break;
+            case "tomato":
+                AddTomato();
+                break;
+            case "bun":
+                break;
+            default:
+                break;
+        }
     }
-
-
 }

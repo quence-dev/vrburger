@@ -23,5 +23,8 @@ public class grabItem : MonoBehaviour
     private void ActivateSocket(XRBaseInteractor interactor)
     {
         socketInteractor.socketActive = true;
+
+        //call increment function from ingredient counter
+        IngredientCounter.Instance.AddIngredient(tag);
     }
 }

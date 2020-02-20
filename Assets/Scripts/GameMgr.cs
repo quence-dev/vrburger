@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameMgr : MonoBehaviour
 {
+
+    #region Singleton
     public static GameMgr Instance;
 
     private void Awake()
@@ -18,7 +20,7 @@ public class GameMgr : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    #endregion
 
     public void StartGame()
     {

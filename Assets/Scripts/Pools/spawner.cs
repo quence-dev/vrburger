@@ -7,6 +7,7 @@ public class spawner : MonoBehaviour
 {
     public float spawnTime = 0.5f;
 
+    #region Singleton
     public static spawner Instance;
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class spawner : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    #endregion
 
     //public GameObject[] prefab;
     //public GameObject[] clone;
