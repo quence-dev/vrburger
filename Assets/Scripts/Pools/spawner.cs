@@ -7,12 +7,29 @@ public class spawner : MonoBehaviour
 {
     public float spawnTime = 0.5f;
 
+    public static spawner Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
     //public GameObject[] prefab;
     //public GameObject[] clone;
 
-    void Start()
+    public void StartSpawn()
     {
         InvokeRepeating("spawnPrefab", spawnTime, spawnTime + getRandTime());
+
+        //use CancelInvoke("spawnPrefab");
     }
 
     private void spawnPrefab()
@@ -35,6 +52,8 @@ public class spawner : MonoBehaviour
                 break;
             case 4:
                 ObjectPooler.Instance.SpawnFromPool("Tomato");
+                break;
+            default:
                 break;
         }
     }

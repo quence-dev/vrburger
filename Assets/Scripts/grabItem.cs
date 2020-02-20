@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class grabItem : MonoBehaviour
 {
+    private XRSocketInteractor socketInteractor = null;
+    private XRGrabInteractable grabInteractable = null;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        socketInteractor = GetComponentInChildren<XRSocketInteractor>();
+        grabInteractable = GetComponent<XRGrabInteractable>();
+
+        socketInteractor.socketActive = false;
+
+
+        grabInteractable.onSelectEnter.AddListener(ActivateSocket);
     }
 
-    // Update is called once per frame
-    void OnSelectEnter()
+    private void ActivateSocket(XRBaseInteractor interactor)
     {
-        
+        socketInteractor.socketActive = true;
     }
 }

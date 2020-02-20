@@ -14,7 +14,7 @@ public class ObjectPooler : MonoBehaviour
 
     #region Singleton
 
-    public static ObjectPooler Instance { get; private set; }
+    public static ObjectPooler Instance;
 
     private void Awake()
     {
@@ -49,12 +49,12 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool(string tag)
+    public void SpawnFromPool(string tag)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
             Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
-            return null;
+            //return null;
         }
 
         GameObject clone = poolDictionary[tag].Dequeue();
@@ -63,9 +63,9 @@ public class ObjectPooler : MonoBehaviour
         clone.transform.position = randSpawnLocation();
         clone.transform.rotation = Quaternion.identity;
 
-        poolDictionary[tag].Enqueue(clone);
+        //poolDictionary[tag].Enqueue(clone);
 
-        return clone;
+        //return clone;
     }
 
     public void ReturnToPool(GameObject clone)
