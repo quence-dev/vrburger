@@ -78,7 +78,7 @@ public class ObjectPooler : MonoBehaviour
 
     private Vector3 randSpawnLocation()
     {
-        Vector3 position = new Vector3(Random.Range(-0.8f, 0.8f), 12f, Random.Range(-0.8f, 0.8f));
+        Vector3 position = new Vector3(Random.Range(-0.8f, 0.8f), 20f, Random.Range(-0.8f, 0.8f));
         return position;
     }
 }
