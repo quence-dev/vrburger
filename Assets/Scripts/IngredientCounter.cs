@@ -18,11 +18,13 @@ public class IngredientCounter : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SetCountToZero();
     }
     #endregion
 
-    private int patty, lettuce, tomato, cheese;
+    private int patty, lettuce, tomato, cheese, bun;
 
+    #region Getters and Setters
     public int GetPatty()
     {
         return patty;
@@ -39,27 +41,55 @@ public class IngredientCounter : MonoBehaviour
     {
         return cheese;
     }
-    public void AddPatty()
+    public int GetBun()
     {
-        patty++;
+        return bun;
     }
-    public void AddLettuce()
+    public void SetPatty(int i)
     {
-        lettuce++;
+        patty = i;
     }
-    public void AddTomato()
+    public void SetLettuce(int i)
     {
-        tomato++;
+        lettuce = i;
     }
-    public void AddCheese()
+    public void SetTomato(int i)
     {
-        cheese++;
+        tomato = i;
     }
+    public void SetCheese(int i)
+    {
+        cheese = i;
+    }
+    #endregion
+
+    #region Increments
+    public void SubPatty()
+    {
+        patty--;
+    }
+    public void SubLettuce()
+    {
+        lettuce--;
+    }
+    public void SubTomato()
+    {
+        tomato--;
+    }
+    public void SubCheese()
+    {
+        cheese--;
+    }
+    public void AddBun()
+    {
+        bun++;
+    }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        SetCountToZero();
+        
     }
 
     private void SetCountToZero()
@@ -68,28 +98,34 @@ public class IngredientCounter : MonoBehaviour
         lettuce = 0;
         tomato = 0;
         cheese = 0;
+        bun = 0;
     }
 
-    public void AddIngredient(string objectTag)
+
+    public void SubIngredient(string objectTag)
     {
         switch (objectTag)
         {
-            case "patty":
-                AddPatty();
+            case "Patty":
+                SubPatty();
                 break;
-            case "lettuce":
-                AddLettuce();
+            case "Lettuce":
+                SubLettuce();
                 break;
-            case "cheese":
-                AddCheese();
+            case "Cheese":
+                SubCheese();
                 break;
-            case "tomato":
-                AddTomato();
+            case "Tomato":
+                SubTomato();
                 break;
-            case "bun":
+            case "Bun":
+                AddBun();
                 break;
             default:
                 break;
         }
     }
+
+
+
 }

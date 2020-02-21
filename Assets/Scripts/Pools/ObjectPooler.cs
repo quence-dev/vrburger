@@ -49,7 +49,7 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public void SpawnFromPool(string tag)
+    public GameObject SpawnFromPool(string tag)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -63,22 +63,22 @@ public class ObjectPooler : MonoBehaviour
         clone.transform.position = randSpawnLocation();
         clone.transform.rotation = Quaternion.identity;
 
-        //poolDictionary[tag].Enqueue(clone);
+        poolDictionary[tag].Enqueue(clone);
 
-        //return clone;
+        return clone;
     }
 
     public void ReturnToPool(GameObject clone)
     {
         string objectTag = clone.name.Replace("(Clone)", string.Empty);
-        clone.SetActive(false);
         clone.transform.rotation = Quaternion.identity;
+        clone.SetActive(false);
         poolDictionary[objectTag].Enqueue(clone);
     }
 
     private Vector3 randSpawnLocation()
     {
-        Vector3 position = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(10.0f, 12.0f), Random.Range(-1.0f, 1.0f));
+        Vector3 position = new Vector3(Random.Range(-0.8f, 0.8f), 12f, Random.Range(-0.8f, 0.8f));
         return position;
     }
 }

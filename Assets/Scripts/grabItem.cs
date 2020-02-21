@@ -24,7 +24,8 @@ public class grabItem : MonoBehaviour
     {
         socketInteractor.socketActive = true;
 
+        string objectTag = this.name.Replace("(Clone)", string.Empty);
         //call increment function from ingredient counter
-        IngredientCounter.Instance.AddIngredient(tag);
+        IngredientCounter.Instance.SubIngredient(objectTag);
     }
 }

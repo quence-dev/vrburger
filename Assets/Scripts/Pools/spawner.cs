@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class spawner : MonoBehaviour
 {
-    public float spawnTime = 0.5f;
+    public float spawnTime = 1.0f;
 
     #region Singleton
     public static spawner Instance;
@@ -29,8 +29,11 @@ public class spawner : MonoBehaviour
     public void StartSpawn()
     {
         InvokeRepeating("spawnPrefab", spawnTime, spawnTime + getRandTime());
+    }
 
-        //use CancelInvoke("spawnPrefab");
+    public void StopSpawn()
+    {
+        CancelInvoke("spawnPrefab");
     }
 
     private void spawnPrefab()
