@@ -13,8 +13,23 @@ MonoBehaviour:
   m_Name: Standard
   m_EditorClassIdentifier: 
   orderName: Classic
-  cheese: 1
-  patty: 1
-  tomato: 1
-  lettuce: 1
-  pickles: 1
+  ingreds:
+  - tag: Patty
+    prefab: {fileID: 1222015857323508795, guid: 3f86d1d30fb8fce46aebb0e415cd5e46,
+      type: 3}
+    size: 1
+  - tag: Cheese
+    prefab: {fileID: 5722290221069952192, guid: f9c1965cab48fcf478a538ba15317b67,
+      type: 3}
+    size: 1
+  - tag: Lettuce
+    prefab: {fileID: 9026609465542011764, guid: e52b2ab994db7c4409c8adf192b3558c,
+      type: 3}
+    size: 1
+  - tag: Tomato
+    prefab: {fileID: 272275426325026653, guid: 07c0b37a7d253db4cbeafd47b1534a58, type: 3}
+    size: 1
+  - tag: Pickle
+    prefab: {fileID: 3354829700555069289, guid: 30be5da03a0f96b43b73404ebfab9dcb,
+      type: 3}
+    size: 1

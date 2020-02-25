@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Hamburger
   m_EditorClassIdentifier: 
   orderName: Plain-N-Simple
-  cheese: 0
-  patty: 1
-  tomato: 0
-  lettuce: 0
+  ingreds:
+  - tag: Patty
+    prefab: {fileID: 1222015857323508795, guid: 3f86d1d30fb8fce46aebb0e415cd5e46,
+      type: 3}
+    size: 1

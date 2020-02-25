@@ -6,10 +6,14 @@ using UnityEngine;
 public class Orders : ScriptableObject
 {
     public string orderName;
-    
+
+    public List<ObjectPooler.Pool> ingreds;
+
+    /*
     public int cheese;
     public int patty;
     public int tomato;
     public int lettuce;
     public int pickles;
+    */
 }
