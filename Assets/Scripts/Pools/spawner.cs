@@ -38,7 +38,7 @@ public class spawner : MonoBehaviour
 
     private void spawnPrefab()
     {
-        int i = Random.Range(0, 5);
+        int i = Random.Range(0, 6);
 
         switch (i)
         {
@@ -56,6 +56,9 @@ public class spawner : MonoBehaviour
                 break;
             case 4:
                 ObjectPooler.Instance.SpawnFromPool("Tomato");
+                break;
+            case 5:
+                ObjectPooler.Instance.SpawnFromPool("Pickles");
                 break;
             default:
                 break;

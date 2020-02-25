@@ -8,13 +8,15 @@ public class GameMgr : MonoBehaviour
     patty = 1,
     lettuce = 1,
     cheese = 1,
-    tomato = 1;
+    tomato = 1,
+    pickles = 1;
 
     /*
      * tomato: 0.60
      * lettuce: 0.50
      * cheese: 0.60
      * patty: 0.75
+     * pickles: 0.50
      */
 
 
@@ -71,16 +73,18 @@ public class GameMgr : MonoBehaviour
     //Checks whether an order is complete.
     private bool OrderComplete()
     {
-        int cheese, tomato, lettuce, patty;
+        int cheese, tomato, lettuce, patty, pickles;
         cheese = IngredientCounter.Instance.GetCheese();
         tomato = IngredientCounter.Instance.GetTomato();
         lettuce = IngredientCounter.Instance.GetLettuce();
         patty = IngredientCounter.Instance.GetPatty();
+        pickles = IngredientCounter.Instance.GetPickles();
 
         if ((cheese <= 0) &&
             (tomato <= 0) && 
             (lettuce <= 0) && 
-            (patty <= 0))
+            (patty <= 0) &&
+            (pickles <= 0))
         {
             return true;
         }
@@ -106,6 +110,7 @@ public class GameMgr : MonoBehaviour
         IngredientCounter.Instance.SetLettuce(lettuce);
         IngredientCounter.Instance.SetCheese(cheese);
         IngredientCounter.Instance.SetTomato(tomato);
+        IngredientCounter.Instance.SetPickles(pickles);
     }
 
 

@@ -22,7 +22,7 @@ public class IngredientCounter : MonoBehaviour
     }
     #endregion
 
-    private int patty, lettuce, tomato, cheese, bun;
+    private int patty, lettuce, tomato, cheese, bun, pickles;
 
     #region Getters and Setters
     public int GetPatty()
@@ -40,6 +40,10 @@ public class IngredientCounter : MonoBehaviour
     public int GetCheese()
     {
         return cheese;
+    }
+    public int GetPickles()
+    {
+        return pickles;
     }
     public int GetBun()
     {
@@ -61,6 +65,10 @@ public class IngredientCounter : MonoBehaviour
     {
         cheese = i;
     }
+    public void SetPickles(int i)
+    {
+        pickles = i;
+    }
     #endregion
 
     #region Increments
@@ -80,6 +88,10 @@ public class IngredientCounter : MonoBehaviour
     {
         cheese--;
     }
+    public void SubPickles()
+    {
+        pickles--;
+    }
     public void AddBun()
     {
         bun++;
@@ -98,6 +110,7 @@ public class IngredientCounter : MonoBehaviour
         lettuce = 0;
         tomato = 0;
         cheese = 0;
+        pickles = 0;
         bun = 0;
     }
 
@@ -116,6 +129,9 @@ public class IngredientCounter : MonoBehaviour
                 break;
             case "Tomato":
                 SubTomato();
+                break;
+            case "Pickles":
+                SubPickles();
                 break;
             case "Bun":
                 AddBun();

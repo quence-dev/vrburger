@@ -11,4 +11,5 @@ public class Orders : ScriptableObject
     public int patty;
     public int tomato;
     public int lettuce;
+    public int pickles;
 }
