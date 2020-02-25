@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 8531582768150503544}
   - component: {fileID: 6432567260478970713}
   - component: {fileID: -2156449408153264401}
-  - component: {fileID: -204745527882963690}
   m_Layer: 9
   m_Name: Bun
   m_TagString: ingredient
@@ -276,15 +275,3 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
---- !u!114 &-204745527882963690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5869531161426337852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fece248aa7af8b7409d4f96ba5dbf044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -101,7 +101,6 @@ public class IngredientCounter : MonoBehaviour
         bun = 0;
     }
 
-
     public void SubIngredient(string objectTag)
     {
         switch (objectTag)
