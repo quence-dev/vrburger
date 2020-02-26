@@ -7,7 +7,7 @@ public class Orders : ScriptableObject
 {
     public string orderName;
 
-    public List<ObjectPooler.Pool> ingreds;
+    public List<ObjectPooler.Pool> activeIngredients;
 
     /*
     public int cheese;

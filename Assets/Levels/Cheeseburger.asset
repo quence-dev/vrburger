@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cheeseburger
   m_EditorClassIdentifier: 
   orderName: Meat-N-Cheese
-  ingreds:
+  activeIngredients:
   - tag: Patty
     prefab: {fileID: 1222015857323508795, guid: 3f86d1d30fb8fce46aebb0e415cd5e46,
       type: 3}

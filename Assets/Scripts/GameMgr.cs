@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class GameMgr : MonoBehaviour
 {
-    private int level,
-    patty = 1,
-    lettuce = 1,
-    cheese = 1,
-    tomato = 1,
-    pickles = 1;
+    private int level;
 
     /*
      * tomato: 0.60
@@ -40,7 +35,6 @@ public class GameMgr : MonoBehaviour
     public void StartGame()
     {
         spawner.Instance.StartSpawn();
-        levelTest();
         level = 1;
     }
 
@@ -50,7 +44,7 @@ public class GameMgr : MonoBehaviour
         if (OrderComplete() && twoBuns())
         {
             //if order is complete and two buns caught, pass level 
-            spawner.Instance.StopSpawn();
+            PassLevel();
         }
         if (twoBuns() && !OrderComplete())
         {
@@ -96,21 +90,13 @@ public class GameMgr : MonoBehaviour
     private void PassLevel()
     {
         level++;
+        spawner.Instance.StopSpawn();
     }
 
     //Fail state for single level. Restarts?
     private void FailLevel() 
     {
-        
-    }
-
-    private void levelTest()
-    {
-        IngredientCounter.Instance.SetPatty(patty);
-        IngredientCounter.Instance.SetLettuce(lettuce);
-        IngredientCounter.Instance.SetCheese(cheese);
-        IngredientCounter.Instance.SetTomato(tomato);
-        IngredientCounter.Instance.SetPickles(pickles);
+        spawner.Instance.StopSpawn();
     }
 
 

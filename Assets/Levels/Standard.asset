@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Standard
   m_EditorClassIdentifier: 
   orderName: Classic
-  ingreds:
+  activeIngredients:
   - tag: Patty
     prefab: {fileID: 1222015857323508795, guid: 3f86d1d30fb8fce46aebb0e415cd5e46,
       type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
   - tag: Tomato
     prefab: {fileID: 272275426325026653, guid: 07c0b37a7d253db4cbeafd47b1534a58, type: 3}
     size: 1
-  - tag: Pickle
+  - tag: Pickles
     prefab: {fileID: 3354829700555069289, guid: 30be5da03a0f96b43b73404ebfab9dcb,
       type: 3}
     size: 1

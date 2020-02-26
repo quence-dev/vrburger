@@ -11,43 +11,19 @@ public class OrderUI : MonoBehaviour
     public Text orderText;
 
 
-    private string patty, lettuce, cheese, tomato, pickles;
+    //private string patty, lettuce, cheese, tomato, pickles;
 
     private void Start()
     {
         nameText.text = order.name;
-        orderText.text = CheckOrderCount();
-
-        /*
-        itemText1.text = "Cheese: x" + order.cheese.ToString();
-        itemText2.text = order.patty.ToString();
-        itemText3.text = order.lettuce.ToString();
-        itemText4.text = order.tomato.ToString();
-        itemText5.text = order.pickles.ToString();
-        */
+        orderText.text = InitializeOrder();
     }
-
-    //check the count of each ingredient to add all items
-    //with a quantity above zero
-    private string CheckOrderCount()
-    {
-        string outputText = "";
-
-        foreach(ObjectPooler.Pool order in order.ingreds)
-        {
-            if (order.size > 0)
-            {
-                outputText += order.tag + ": x" + order.size + "\n";
-            }
-        }
-
-        return outputText;
-    }
-
 
     // Update is called once per frame
     void Update()
     {
+        orderText.text = UpdateOrder();
+
         /*
         patty = IngredientCounter.Instance.GetPatty().ToString();
         lettuce = IngredientCounter.Instance.GetLettuce().ToString();
@@ -62,6 +38,83 @@ public class OrderUI : MonoBehaviour
             "Tomato: x{3}\n" +
             "Pickles: x{4}", patty, lettuce, cheese, tomato, pickles);
         */
+    }
+
+    //check the count of each ingredient to add all items
+    //with a quantity above zero
+    private string InitializeOrder()
+    {
+        string outputText = "";
+
+        foreach(ObjectPooler.Pool order in order.activeIngredients)
+        {
+            if (order.size > 0)
+            {
+                outputText += order.tag + ": x" + order.size + "\n";
+                SetCounts(order);
+            }
+        }
+
+        return outputText;
+    }
+
+    //updates order as items are caught
+    private string UpdateOrder()
+    {
+        string outputText = "";
+
+        foreach (ObjectPooler.Pool order in order.activeIngredients)
+        {
+            if (order.size > 0)
+            {
+                outputText += order.tag + ": x" + GetCounts(order).ToString() + "\n";
+            }
+        }
+
+        return outputText;
+    }
+
+    private void SetCounts(ObjectPooler.Pool order)
+    {
+        switch (order.tag)
+        {
+            case "Patty":
+                IngredientCounter.Instance.SetPatty(order.size);
+                break;
+            case "Lettuce":
+                IngredientCounter.Instance.SetLettuce(order.size);
+                break;
+            case "Cheese":
+                IngredientCounter.Instance.SetCheese(order.size);
+                break;
+            case "Tomato":
+                IngredientCounter.Instance.SetTomato(order.size);
+                break;
+            case "Pickles":
+                IngredientCounter.Instance.SetPickles(order.size);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private int GetCounts(ObjectPooler.Pool order)
+    {
+        switch (order.tag)
+        {
+            case "Patty":
+                return IngredientCounter.Instance.GetPatty();
+            case "Lettuce":
+                return IngredientCounter.Instance.GetLettuce();
+            case "Cheese":
+                return IngredientCounter.Instance.GetCheese();
+            case "Tomato":
+                return IngredientCounter.Instance.GetTomato();
+            case "Pickles":
+                return IngredientCounter.Instance.GetPickles();
+            default:
+                return 0;
+        }
     }
 
 }

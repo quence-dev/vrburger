@@ -98,12 +98,6 @@ public class IngredientCounter : MonoBehaviour
     }
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void SetCountToZero()
     {
         patty = 0;
