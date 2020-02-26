@@ -9,11 +9,4 @@ public class Orders : ScriptableObject
 
     public List<ObjectPooler.Pool> activeIngredients;
 
-    /*
-    public int cheese;
-    public int patty;
-    public int tomato;
-    public int lettuce;
-    public int pickles;
-    */
 }

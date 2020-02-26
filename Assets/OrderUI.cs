@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class OrderUI : MonoBehaviour
 {
-    public Orders order;
+    private Orders order;
 
     public Text nameText;
     public Text orderText;
@@ -15,29 +15,14 @@ public class OrderUI : MonoBehaviour
 
     private void Start()
     {
+        order = GameMgr.Instance.GetCurrentOrder();
         nameText.text = order.name;
         orderText.text = InitializeOrder();
     }
 
-    // Update is called once per frame
     void Update()
     {
         orderText.text = UpdateOrder();
-
-        /*
-        patty = IngredientCounter.Instance.GetPatty().ToString();
-        lettuce = IngredientCounter.Instance.GetLettuce().ToString();
-        cheese = IngredientCounter.Instance.GetCheese().ToString();
-        tomato = IngredientCounter.Instance.GetTomato().ToString();
-        pickles = IngredientCounter.Instance.GetPickles().ToString();
-        */
-
-        /*orderText.text = string.Format("Patty: x{0}\n" +
-            "Lettuce: x{1}\n" +
-            "Cheese: x{2}\n" +
-            "Tomato: x{3}\n" +
-            "Pickles: x{4}", patty, lettuce, cheese, tomato, pickles);
-        */
     }
 
     //check the count of each ingredient to add all items

@@ -18,11 +18,16 @@ public class IngredientCounter : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        SetCountToZero();
+        ResetCounts();
     }
     #endregion
 
+    //only for tracking total remaining ingredients to be caught
     private int patty, lettuce, tomato, cheese, bun, pickles;
+
+    //only for computing running totals of caught ingredients
+    private int pattySum, lettuceSum, tomatoSum, cheeseSum, picklesSum;
+
 
     #region Getters and Setters
     public int GetPatty()
@@ -69,36 +74,63 @@ public class IngredientCounter : MonoBehaviour
     {
         pickles = i;
     }
+
+    public int GetPattySum()
+    {
+        return pattySum;
+    }
+    public int GetLettuceSum()
+    {
+        return lettuceSum;
+    }
+    public int GetTomatoSum()
+    {
+        return tomatoSum;
+    }
+    public int GetCheeseSum()
+    {
+        return cheeseSum;
+    }
+    public int GetPicklesSum()
+    {
+        return picklesSum;
+    }
     #endregion
 
     #region Increments
     public void SubPatty()
     {
         patty--;
+        pattySum++;
     }
     public void SubLettuce()
     {
         lettuce--;
+        lettuceSum++;
     }
     public void SubTomato()
     {
         tomato--;
+        tomatoSum++;
     }
     public void SubCheese()
     {
         cheese--;
+        cheeseSum++;
     }
     public void SubPickles()
     {
         pickles--;
+        picklesSum++;
     }
+    //bun only needs to go up because catching two ends the level
     public void AddBun()
     {
         bun++;
     }
     #endregion
 
-    private void SetCountToZero()
+    private void ResetCounts()
     {
         patty = 0;
         lettuce = 0;
@@ -106,6 +138,12 @@ public class IngredientCounter : MonoBehaviour
         cheese = 0;
         pickles = 0;
         bun = 0;
+
+        pattySum = 0;
+        lettuceSum = 0;
+        tomatoSum = 0;
+        cheeseSum = 0;
+        picklesSum = 0;
     }
 
     public void SubIngredient(string objectTag)
@@ -134,7 +172,5 @@ public class IngredientCounter : MonoBehaviour
                 break;
         }
     }
-
-
 
 }

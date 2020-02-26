@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.Events;
+//using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameMgr : MonoBehaviour
 {
     private int level;
+
+    public List<Orders> orders;
 
     /*
      * tomato: 0.60
@@ -29,29 +33,28 @@ public class GameMgr : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //subscribe to event to check for complete order
     }
     #endregion
 
     public void StartGame()
     {
         spawner.Instance.StartSpawn();
-        level = 1;
+        level = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CheckForCompletion()
     {
-        if (OrderComplete() && twoBuns())
+        if (OrderIsComplete() && twoBuns())
         {
             //if order is complete and two buns caught, pass level 
             PassLevel();
         }
-        if (twoBuns() && !OrderComplete())
+        if (twoBuns() && !OrderIsComplete())
         {
             //two buns are caught and order is not complete, fail level    
             FailLevel();
         }
-
     }
 
     //Checks if a second (top) bun has been caught.
@@ -65,14 +68,30 @@ public class GameMgr : MonoBehaviour
     }
 
     //Checks whether an order is complete.
-    private bool OrderComplete()
+    private bool OrderIsComplete()
     {
         int cheese, tomato, lettuce, patty, pickles;
-        cheese = IngredientCounter.Instance.GetCheese();
-        tomato = IngredientCounter.Instance.GetTomato();
-        lettuce = IngredientCounter.Instance.GetLettuce();
-        patty = IngredientCounter.Instance.GetPatty();
-        pickles = IngredientCounter.Instance.GetPickles();
+
+        cheese = IngredientCounter.Instance.GetCheeseSum();
+        tomato = IngredientCounter.Instance.GetTomatoSum();
+        lettuce = IngredientCounter.Instance.GetLettuceSum();
+        patty = IngredientCounter.Instance.GetPattySum();
+        pickles = IngredientCounter.Instance.GetPicklesSum();
+
+        string tempString = "";
+
+        foreach (ObjectPooler.Pool order in orders[level].activeIngredients)
+        {
+            tempString = "Get" + order.tag + "Sum()";
+
+            if (order.size <= IngredientCounter.Instance.GetLettuceSum())
+            {
+                //outputText += order.tag + ": x" + GetCounts(order).ToString() + "\n";
+            }
+        }
+
+
+
 
         if ((cheese <= 0) &&
             (tomato <= 0) && 
@@ -89,14 +108,19 @@ public class GameMgr : MonoBehaviour
     //Pass state for single level. Advances level
     private void PassLevel()
     {
-        level++;
         spawner.Instance.StopSpawn();
+        level++;
     }
 
     //Fail state for single level. Restarts?
     private void FailLevel() 
     {
         spawner.Instance.StopSpawn();
+    }
+
+    public Orders GetCurrentOrder()
+    {
+        return orders[level];
     }
 
 
