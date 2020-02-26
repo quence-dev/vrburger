@@ -10,7 +10,6 @@ public class OrderUI : MonoBehaviour
     public Text nameText;
     public Text orderText;
 
-
     //private string patty, lettuce, cheese, tomato, pickles;
 
     private void Start()
@@ -20,7 +19,7 @@ public class OrderUI : MonoBehaviour
         orderText.text = InitializeOrder();
     }
 
-    void Update()
+    private void Update()
     {
         orderText.text = UpdateOrder();
     }

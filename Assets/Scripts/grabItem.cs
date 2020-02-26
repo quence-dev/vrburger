@@ -3,19 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+public enum IngredientType
+{
+    Bun,
+    Cheese,
+    Lettuce,
+    Patty,
+    Pickles,
+    Tomato,
+}
+
+[RequireComponent(typeof(XRGrabInteractable))]
 public class grabItem : MonoBehaviour
 {
-    private XRSocketInteractor socketInteractor = null;
+    public XRSocketInteractor socketInteractor;
     private XRGrabInteractable grabInteractable = null;
 
+    public IngredientType ingredient;
+
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        socketInteractor = GetComponentInChildren<XRSocketInteractor>();
         grabInteractable = GetComponent<XRGrabInteractable>();
 
         socketInteractor.socketActive = false;
-
 
         grabInteractable.onSelectEnter.AddListener(ActivateSocket);
     }
@@ -24,8 +35,8 @@ public class grabItem : MonoBehaviour
     {
         socketInteractor.socketActive = true;
 
-        string objectTag = this.name.Replace("(Clone)", string.Empty);
         //call increment function from ingredient counter
-        IngredientCounter.Instance.SubIngredient(objectTag);
+        IngredientCounter.Instance.SubIngredient(ingredient);
+        GameMgr.Instance.CheckForCompletion();
     }
 }

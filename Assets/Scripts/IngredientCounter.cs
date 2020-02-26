@@ -23,56 +23,56 @@ public class IngredientCounter : MonoBehaviour
     #endregion
 
     //only for tracking total remaining ingredients to be caught
-    private int patty, lettuce, tomato, cheese, bun, pickles;
+    private int remainingPatty, remainingLettuce, remainingTomato, remainingCheese, remainingBun, remainingPickles;
 
     //only for computing running totals of caught ingredients
-    private int pattySum, lettuceSum, tomatoSum, cheeseSum, picklesSum;
+    private int pattySum, lettuceSum, tomatoSum, cheeseSum, picklesSum, bunSum;
 
 
     #region Getters and Setters
     public int GetPatty()
     {
-        return patty;
+        return remainingPatty;
     }
     public int GetLettuce()
     {
-        return lettuce;
+        return remainingLettuce;
     }
     public int GetTomato()
     {
-        return tomato;
+        return remainingTomato;
     }
     public int GetCheese()
     {
-        return cheese;
+        return remainingCheese;
     }
     public int GetPickles()
     {
-        return pickles;
+        return remainingPickles;
     }
     public int GetBun()
     {
-        return bun;
+        return remainingBun;
     }
     public void SetPatty(int i)
     {
-        patty = i;
+        remainingPatty = i;
     }
     public void SetLettuce(int i)
     {
-        lettuce = i;
+        remainingLettuce = i;
     }
     public void SetTomato(int i)
     {
-        tomato = i;
+        remainingTomato = i;
     }
     public void SetCheese(int i)
     {
-        cheese = i;
+        remainingCheese = i;
     }
     public void SetPickles(int i)
     {
-        pickles = i;
+        remainingPickles = i;
     }
 
     public int GetPattySum()
@@ -95,49 +95,57 @@ public class IngredientCounter : MonoBehaviour
     {
         return picklesSum;
     }
+    public int GetBunSum()
+    {
+        return bunSum;
+    }
     #endregion
 
     #region Increments
     public void SubPatty()
     {
-        patty--;
+        remainingPatty--;
         pattySum++;
     }
     public void SubLettuce()
     {
-        lettuce--;
+        remainingLettuce--;
         lettuceSum++;
     }
     public void SubTomato()
     {
-        tomato--;
+        remainingTomato--;
         tomatoSum++;
     }
     public void SubCheese()
     {
-        cheese--;
+        remainingCheese--;
         cheeseSum++;
     }
     public void SubPickles()
     {
-        pickles--;
+        remainingPickles--;
         picklesSum++;
     }
-    //bun only needs to go up because catching two ends the level
+    //bun only ever needs to go to two
     public void AddBun()
     {
-        bun++;
+        remainingBun--;
+        bunSum++;
+        Debug.Log("Counting buns..." + bunSum);
     }
     #endregion
 
     private void ResetCounts()
     {
-        patty = 0;
-        lettuce = 0;
-        tomato = 0;
-        cheese = 0;
-        pickles = 0;
-        bun = 0;
+        remainingPatty = 0;
+        remainingLettuce = 0;
+        remainingTomato = 0;
+        remainingCheese = 0;
+        remainingPickles = 0;
+
+        remainingBun = 2;
+        bunSum = 0;
 
         pattySum = 0;
         lettuceSum = 0;
@@ -146,26 +154,27 @@ public class IngredientCounter : MonoBehaviour
         picklesSum = 0;
     }
 
-    public void SubIngredient(string objectTag)
+    public void SubIngredient(IngredientType ingredient)
     {
-        switch (objectTag)
+        Debug.Log("Updating number of " + ingredient.ToString());
+        switch (ingredient)
         {
-            case "Patty":
+            case IngredientType.Patty:
                 SubPatty();
                 break;
-            case "Lettuce":
+            case IngredientType.Lettuce:
                 SubLettuce();
                 break;
-            case "Cheese":
+            case IngredientType.Cheese:
                 SubCheese();
                 break;
-            case "Tomato":
+            case IngredientType.Tomato:
                 SubTomato();
                 break;
-            case "Pickles":
+            case IngredientType.Pickles:
                 SubPickles();
                 break;
-            case "Bun":
+            case IngredientType.Bun:
                 AddBun();
                 break;
             default:

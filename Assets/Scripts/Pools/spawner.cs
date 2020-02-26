@@ -8,19 +8,16 @@ public class spawner : MonoBehaviour
     public float spawnTime = 1.0f;
 
     #region Singleton
+
     public static spawner Instance;
     private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
         else
-        {
-            Destroy(gameObject);
-        }
+            Destroy(this);
     }
+
     #endregion
 
     //public GameObject[] prefab;
@@ -28,7 +25,7 @@ public class spawner : MonoBehaviour
 
     public void StartSpawn()
     {
-        InvokeRepeating("spawnPrefab", spawnTime, spawnTime + getRandTime());
+        InvokeRepeating("spawnPrefab", spawnTime, spawnTime);
     }
 
     public void StopSpawn()
@@ -65,22 +62,25 @@ public class spawner : MonoBehaviour
         }
     }
 
-    ////Create clone instantiations of burger ingredients.
-    //void spawnPrefab()
-    //{
-    //    for(int i = 0; i < 5; i++)
-    //        clone[i] = Instantiate(prefab[randSpawnItem()], randSpawnLocation(), Quaternion.identity) as GameObject;
-    //}
 
-    ////Randomly choose spawn location within boundary
-    //private Vector3 randSpawnLocation()
-    //{
-    //    Vector3 position = new Vector3(Random.Range(-1f, 1f), Random.Range(8.0f, 10.0f), Random.Range(-1f, 1f));
-    //    return position;
-    //}
+    /*
+    //Create clone instantiations of burger ingredients.
+    void spawnPrefab()
+    {
+        for (int i = 0; i < 5; i++)
+            clone[i] = Instantiate(prefab[randSpawnItem()], randSpawnLocation(), Quaternion.identity) as GameObject;
+    }
+
+    //Randomly choose spawn location within boundary
+    private Vector3 randSpawnLocation()
+    {
+        Vector3 position = new Vector3(Random.Range(-1f, 1f), Random.Range(8.0f, 10.0f), Random.Range(-1f, 1f));
+        return position;
+    }
 
     private float getRandTime()
     {
         return Random.Range(-0.5f, 0.5f);
     }
+    */
 }

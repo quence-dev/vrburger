@@ -86,7 +86,7 @@ MonoBehaviour:
       m_Calls: []
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 0}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
 --- !u!1 &5869531161426337852
@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 8531582768150503544}
   - component: {fileID: 6432567260478970713}
   - component: {fileID: -2156449408153264401}
+  - component: {fileID: 1343532348880625206}
   m_Layer: 9
   m_Name: Bun
   m_TagString: ingredient
@@ -232,30 +233,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnSelectEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4610842380062528720, guid: 910fcea5027ae3c4489d10f4e374a25f,
-          type: 3}
-        m_MethodName: CheckForCompletion
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
@@ -298,3 +276,17 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
+--- !u!114 &1343532348880625206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5869531161426337852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fece248aa7af8b7409d4f96ba5dbf044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketInteractor: {fileID: 7026469701300124862}
+  ingredient: 0

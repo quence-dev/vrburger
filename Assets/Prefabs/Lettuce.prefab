@@ -86,7 +86,7 @@ MonoBehaviour:
       m_Calls: []
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 0}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
 --- !u!1 &9026609465542011764
@@ -233,19 +233,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnSelectEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4610842380062528720, guid: 910fcea5027ae3c4489d10f4e374a25f,
-          type: 3}
-        m_MethodName: CheckForCompletion
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnSelectExit:
     m_PersistentCalls:
       m_Calls: []
@@ -300,3 +288,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fece248aa7af8b7409d4f96ba5dbf044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  socketInteractor: {fileID: 6298492397333146846}
+  ingredient: 2

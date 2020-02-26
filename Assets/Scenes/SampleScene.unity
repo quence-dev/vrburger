@@ -242,7 +242,7 @@ MonoBehaviour:
       m_Calls: []
   m_ShowInteractableHoverMeshes: 1
   m_InteractableHoverMeshMaterial: {fileID: 0}
-  m_SocketActive: 1
+  m_SocketActive: 0
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
 --- !u!65 &26573113
@@ -1008,7 +1008,6 @@ GameObject:
   m_Component:
   - component: {fileID: 357647254}
   - component: {fileID: 357647255}
-  - component: {fileID: 357647253}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -1016,42 +1015,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &357647253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357647252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 069d797c0a35a584abb5ab25982e0b92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools:
-  - tag: Bun
-    prefab: {fileID: 5869531161426337852, guid: e9ae9138bb714824fa6670a67e7bce64,
-      type: 3}
-    size: 30
-  - tag: Cheese
-    prefab: {fileID: 5722290221069952192, guid: f9c1965cab48fcf478a538ba15317b67,
-      type: 3}
-    size: 50
-  - tag: Lettuce
-    prefab: {fileID: 9026609465542011764, guid: e52b2ab994db7c4409c8adf192b3558c,
-      type: 3}
-    size: 50
-  - tag: Patty
-    prefab: {fileID: 1222015857323508795, guid: 3f86d1d30fb8fce46aebb0e415cd5e46,
-      type: 3}
-    size: 50
-  - tag: Tomato
-    prefab: {fileID: 272275426325026653, guid: 07c0b37a7d253db4cbeafd47b1534a58, type: 3}
-    size: 50
-  - tag: Pickles
-    prefab: {fileID: 3354829700555069289, guid: 30be5da03a0f96b43b73404ebfab9dcb,
-      type: 3}
-    size: 50
 --- !u!4 &357647254
 Transform:
   m_ObjectHideFlags: 0
@@ -1533,7 +1496,7 @@ MonoBehaviour:
   m_EnableInputActions: 1
   m_PoseProvider: {fileID: 0}
   m_ControllerNode: 4
-  m_SelectUsage: 2
+  m_SelectUsage: 3
   m_ActivateUsage: 2
   m_UIPressUsage: 15
   m_AxisToPressThreshold: 0.1
@@ -2443,7 +2406,7 @@ Transform:
   m_Children:
   - {fileID: 477234859}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &896696801
 MonoBehaviour:
@@ -2575,7 +2538,7 @@ MonoBehaviour:
   m_EnableInputActions: 1
   m_PoseProvider: {fileID: 0}
   m_ControllerNode: 5
-  m_SelectUsage: 2
+  m_SelectUsage: 3
   m_ActivateUsage: 2
   m_UIPressUsage: 15
   m_AxisToPressThreshold: 0.1
@@ -2658,7 +2621,7 @@ Transform:
   - {fileID: 1713561901}
   - {fileID: 1152633837}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &952178501
 PrefabInstance:
@@ -3340,6 +3303,7 @@ GameObject:
   - component: {fileID: 1541180244}
   - component: {fileID: 1541180243}
   - component: {fileID: 1541180242}
+  - component: {fileID: 1541180247}
   m_Layer: 9
   m_Name: Bun
   m_TagString: ingredient
@@ -3361,7 +3325,7 @@ Transform:
   m_Children:
   - {fileID: 26573111}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0.040000003, z: 0}
 --- !u!114 &1541180242
 MonoBehaviour:
@@ -3529,6 +3493,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541180240}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1541180247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541180240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fece248aa7af8b7409d4f96ba5dbf044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketInteractor: {fileID: 26573112}
+  ingredient: 0
 --- !u!1 &1589246559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,7 +3548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1595813460
 PrefabInstance:
@@ -3731,7 +3709,7 @@ Transform:
   m_Children:
   - {fileID: 1744724867}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1635990394
 GameObject:
@@ -3744,7 +3722,6 @@ GameObject:
   - component: {fileID: 1635990395}
   - component: {fileID: 1635990397}
   - component: {fileID: 1635990396}
-  - component: {fileID: 1635990398}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -3815,24 +3792,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635990394}
   m_CullTransparentMesh: 0
---- !u!114 &1635990398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635990394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4f54eab2c53d5b4085d4df24bdfad5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orderTicket: {fileID: 1635990396}
-  patty: 
-  lettuce: 
-  cheese: 
-  tomato: 
-  pickles: 
 --- !u!1 &1687152713
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,7 +4134,7 @@ Transform:
   - {fileID: 181199463}
   - {fileID: 1196861449}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1857231007
 PrefabInstance:
@@ -4588,6 +4547,73 @@ MonoBehaviour:
   m_TeleportationProvider: {fileID: 0}
   m_MatchOrientation: 0
   m_TeleportTrigger: 0
+--- !u!1 &2059197574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059197576}
+  - component: {fileID: 2059197575}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2059197575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059197574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069d797c0a35a584abb5ab25982e0b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Bun
+    prefab: {fileID: 5869531161426337852, guid: e9ae9138bb714824fa6670a67e7bce64,
+      type: 3}
+    size: 30
+  - tag: Cheese
+    prefab: {fileID: 5722290221069952192, guid: f9c1965cab48fcf478a538ba15317b67,
+      type: 3}
+    size: 50
+  - tag: Lettuce
+    prefab: {fileID: 9026609465542011764, guid: e52b2ab994db7c4409c8adf192b3558c,
+      type: 3}
+    size: 50
+  - tag: Patty
+    prefab: {fileID: 1222015857323508795, guid: 3f86d1d30fb8fce46aebb0e415cd5e46,
+      type: 3}
+    size: 50
+  - tag: Tomato
+    prefab: {fileID: 272275426325026653, guid: 07c0b37a7d253db4cbeafd47b1534a58, type: 3}
+    size: 50
+  - tag: Pickles
+    prefab: {fileID: 3354829700555069289, guid: 30be5da03a0f96b43b73404ebfab9dcb,
+      type: 3}
+    size: 50
+--- !u!4 &2059197576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059197574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1595080289688767514
 Transform:
   m_ObjectHideFlags: 0
@@ -4678,7 +4704,7 @@ PrefabInstance:
     - target: {fileID: 4610842380062528719, guid: 910fcea5027ae3c4489d10f4e374a25f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4610842380062528719, guid: 910fcea5027ae3c4489d10f4e374a25f,
         type: 3}
