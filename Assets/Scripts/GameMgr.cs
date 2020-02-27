@@ -9,6 +9,7 @@ public class GameMgr : MonoBehaviour
     private int level;
 
     public List<Orders> orders;
+    private int patty, tomato, lettuce, cheese, pickles;
 
     /*
      * tomato: 0.60
@@ -24,42 +25,41 @@ public class GameMgr : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
-        {
+        if (Instance == null)
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
         else
-        {
-            Destroy(gameObject);
-        }
-        //subscribe to event to check for complete order
+            Destroy(this);
+        level = 1;
     }
+
     #endregion
 
     public void StartGame()
     {
         spawner.Instance.StartSpawn();
-        level = 0;
+        SetCurrentOrderRequirements();
     }
 
     public void CheckForCompletion()
     {
-        if (OrderIsComplete() && TwoBuns())
+        Debug.Log("Checking for completion...");
+        bool orderComplete = OrderIsComplete();
+
+        if (orderComplete)
         {
             Debug.Log("Order completed");
             //if order is complete and two buns caught, pass level 
             PassLevel();
         }
-        else if (TwoBuns() && !OrderIsComplete())
+        else
         {
             Debug.Log("Order failed");
             //two buns are caught and order is not complete, fail level    
             FailLevel();
         }
-        Debug.Log("Checking order...");
     }
 
+    /*
     //Checks if a second (top) bun has been caught.
     private bool TwoBuns()
     {
@@ -70,11 +70,70 @@ public class GameMgr : MonoBehaviour
         else
             return false;
     }
+    */
 
     //Checks whether an order is complete.
     private bool OrderIsComplete()
     {
+        if (patty >= IngredientCounter.Instance.GetPattySum() &&
+            tomato >= IngredientCounter.Instance.GetTomatoSum() &&
+            cheese >= IngredientCounter.Instance.GetCheeseSum() &&
+            lettuce >= IngredientCounter.Instance.GetLettuceSum() &&
+            pickles >= IngredientCounter.Instance.GetPicklesSum())
+        {
+            Debug.Log("Correct ingredients identified.");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Order incomplete.");
+            return false;
+        }
+
+        /*
+        foreach (int ingredient in requiredIngredients.Values)
+        {
+            if (GetCurrentOrder().activeIngredients.Count == ingredient)
+                return true;
+        }
         return false;
+        */
+        
+    }
+
+    private void SetCurrentOrderRequirements()
+    {
+        Orders currentOrder = GetCurrentOrder();
+
+        patty = 0;
+        tomato = 0;
+        lettuce = 0;
+        cheese = 0;
+        pickles = 0;
+
+        foreach (ObjectPooler.Pool activeIngredients in currentOrder.activeIngredients)
+        {
+            switch (activeIngredients.tag)
+            {
+                case "Patty":
+                    patty = activeIngredients.size;
+                    break;
+                case "Tomato":
+                    tomato = activeIngredients.size;
+                    break;
+                case "Lettuce":
+                    lettuce = activeIngredients.size;
+                    break;
+                case "Cheese":
+                    cheese = activeIngredients.size;
+                    break;
+                case "Pickles":
+                    pickles = activeIngredients.size;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     //Pass state for single level. Advances level
@@ -110,7 +169,6 @@ public class GameMgr : MonoBehaviour
                 ObjectPooler.Instance.ReturnToPool(gameObject);
             }
         }
-        
     }
 
 

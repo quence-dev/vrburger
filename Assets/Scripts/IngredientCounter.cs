@@ -10,71 +10,19 @@ public class IngredientCounter : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
         else
-        {
-            Destroy(gameObject);
-        }
+            Destroy(this);
         ResetCounts();
     }
-    #endregion
 
-    //only for tracking total remaining ingredients to be caught
-    private int remainingPatty, remainingLettuce, remainingTomato, remainingCheese, remainingBun, remainingPickles;
+    #endregion
 
     //only for computing running totals of caught ingredients
     private int pattySum, lettuceSum, tomatoSum, cheeseSum, picklesSum, bunSum;
 
 
-    #region Getters and Setters
-    public int GetPatty()
-    {
-        return remainingPatty;
-    }
-    public int GetLettuce()
-    {
-        return remainingLettuce;
-    }
-    public int GetTomato()
-    {
-        return remainingTomato;
-    }
-    public int GetCheese()
-    {
-        return remainingCheese;
-    }
-    public int GetPickles()
-    {
-        return remainingPickles;
-    }
-    public int GetBun()
-    {
-        return remainingBun;
-    }
-    public void SetPatty(int i)
-    {
-        remainingPatty = i;
-    }
-    public void SetLettuce(int i)
-    {
-        remainingLettuce = i;
-    }
-    public void SetTomato(int i)
-    {
-        remainingTomato = i;
-    }
-    public void SetCheese(int i)
-    {
-        remainingCheese = i;
-    }
-    public void SetPickles(int i)
-    {
-        remainingPickles = i;
-    }
-
+    #region Getters
     public int GetPattySum()
     {
         return pattySum;
@@ -102,35 +50,29 @@ public class IngredientCounter : MonoBehaviour
     #endregion
 
     #region Increments
-    public void SubPatty()
+    public void AddPatty()
     {
-        remainingPatty--;
         pattySum++;
     }
-    public void SubLettuce()
+    public void AddLettuce()
     {
-        remainingLettuce--;
         lettuceSum++;
     }
-    public void SubTomato()
+    public void AddTomato()
     {
-        remainingTomato--;
         tomatoSum++;
     }
-    public void SubCheese()
+    public void AddCheese()
     {
-        remainingCheese--;
         cheeseSum++;
     }
-    public void SubPickles()
+    public void AddPickles()
     {
-        remainingPickles--;
         picklesSum++;
     }
     //bun only ever needs to go to two
     public void AddBun()
     {
-        remainingBun--;
         bunSum++;
         Debug.Log("Counting buns..." + bunSum);
     }
@@ -138,15 +80,7 @@ public class IngredientCounter : MonoBehaviour
 
     private void ResetCounts()
     {
-        remainingPatty = 0;
-        remainingLettuce = 0;
-        remainingTomato = 0;
-        remainingCheese = 0;
-        remainingPickles = 0;
-
-        remainingBun = 2;
         bunSum = 0;
-
         pattySum = 0;
         lettuceSum = 0;
         tomatoSum = 0;
@@ -160,19 +94,19 @@ public class IngredientCounter : MonoBehaviour
         switch (ingredient)
         {
             case IngredientType.Patty:
-                SubPatty();
+                AddPatty();
                 break;
             case IngredientType.Lettuce:
-                SubLettuce();
+                AddLettuce();
                 break;
             case IngredientType.Cheese:
-                SubCheese();
+                AddCheese();
                 break;
             case IngredientType.Tomato:
-                SubTomato();
+                AddTomato();
                 break;
             case IngredientType.Pickles:
-                SubPickles();
+                AddPickles();
                 break;
             case IngredientType.Bun:
                 AddBun();

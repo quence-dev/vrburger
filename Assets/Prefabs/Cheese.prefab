@@ -289,4 +289,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketInteractor: {fileID: 3808652751374290591}
+  orderTicket: {fileID: 0}
   ingredient: 1

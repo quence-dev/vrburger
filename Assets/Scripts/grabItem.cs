@@ -37,6 +37,8 @@ public class grabItem : MonoBehaviour
 
         //call increment function from ingredient counter
         IngredientCounter.Instance.SubIngredient(ingredient);
-        GameMgr.Instance.CheckForCompletion();
+        OrderUI.Instance.UpdateOrderText();
+        if (ingredient == IngredientType.Bun && (IngredientCounter.Instance.GetBunSum() == 2))
+            GameMgr.Instance.CheckForCompletion();
     }
 }
