@@ -29,7 +29,7 @@ public class GameMgr : MonoBehaviour
             Instance = this;
         else
             Destroy(this);
-        level = 1;
+        level = 0;
     }
 
     #endregion
@@ -58,19 +58,6 @@ public class GameMgr : MonoBehaviour
             FailLevel();
         }
     }
-
-    /*
-    //Checks if a second (top) bun has been caught.
-    private bool TwoBuns()
-    {
-        int bunCount = IngredientCounter.Instance.GetBunSum();
-        Debug.Log("How many buns? " + bunCount);
-        if (bunCount == 2)
-            return true;
-        else
-            return false;
-    }
-    */
 
     //Checks whether an order is complete.
     private bool OrderIsComplete()
@@ -141,14 +128,31 @@ public class GameMgr : MonoBehaviour
     {
         spawner.Instance.StopSpawn();
         ClearFallingObjects();
+        
         level++;
+        Debug.Log("Next Level....");
+
+        SetCurrentOrderRequirements();
+
+        IngredientCounter.Instance.ResetCounts();
+        OrderUI.Instance.NextLevelUI();
+        spawner.Instance.StartSpawn();
     }
+
 
     //Fail state for single level. Restarts?
     private void FailLevel() 
     {
         spawner.Instance.StopSpawn();
         ClearFallingObjects();
+
+
+        Debug.Log("Restarting level... ");
+        SetCurrentOrderRequirements();
+
+        IngredientCounter.Instance.ResetCounts();
+        OrderUI.Instance.NextLevelUI();
+        spawner.Instance.StartSpawn();
     }
 
     public Orders GetCurrentOrder()

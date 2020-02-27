@@ -33,6 +33,14 @@ public class OrderUI : MonoBehaviour
         orderText.text = InitializeOrder();
     }
 
+    public void NextLevelUI()
+    {
+        Debug.Log("UI reset.");
+        order = GameMgr.Instance.GetCurrentOrder();
+        nameText.text = order.name;
+        orderText.text = InitializeOrder();
+    }
+
 
     //check the count of each ingredient to add all items with a quantity above zero
     private string InitializeOrder()
@@ -71,6 +79,7 @@ public class OrderUI : MonoBehaviour
     private int GetCounts(ObjectPooler.Pool order)
     {
         int remaining;
+
         switch (order.tag)
         {
             case "Patty":
@@ -79,7 +88,7 @@ public class OrderUI : MonoBehaviour
                     return remaining;
                 else
                 {
-                    Debug.Log("Actual value: " + IngredientCounter.Instance.GetPattySum());
+                    //Debug.Log("Actual value: " + IngredientCounter.Instance.GetPattySum());
                     return 0;
                 }
             case "Lettuce":
@@ -88,7 +97,7 @@ public class OrderUI : MonoBehaviour
                     return remaining;
                 else
                 {
-                    Debug.Log("Actual value: " + IngredientCounter.Instance.GetLettuceSum());
+                    //Debug.Log("Actual value: " + IngredientCounter.Instance.GetLettuceSum());
                     return 0;
                 }
             case "Cheese":
@@ -97,7 +106,7 @@ public class OrderUI : MonoBehaviour
                     return remaining;
                 else
                 {
-                    Debug.Log("Actual value: " + IngredientCounter.Instance.GetCheeseSum());
+                    //Debug.Log("Actual value: " + IngredientCounter.Instance.GetCheeseSum());
                     return 0;
                 }
             case "Tomato":
@@ -106,7 +115,7 @@ public class OrderUI : MonoBehaviour
                     return remaining;
                 else
                 {
-                    Debug.Log("Actual value: " + IngredientCounter.Instance.GetTomatoSum());
+                    //Debug.Log("Actual value: " + IngredientCounter.Instance.GetTomatoSum());
                     return 0;
                 }
             case "Pickles":
@@ -115,7 +124,7 @@ public class OrderUI : MonoBehaviour
                     return remaining;
                 else
                 {
-                    Debug.Log("Actual value: " + IngredientCounter.Instance.GetPicklesSum());
+                    //Debug.Log("Actual value: " + IngredientCounter.Instance.GetPicklesSum());
                     return 0;
                 }
             default:

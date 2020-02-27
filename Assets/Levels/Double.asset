@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127195b9110b1e24d820fe13f0d6fd4f, type: 3}
+  m_Name: Double
+  m_EditorClassIdentifier: 
+  orderName: Double Size
+  activeIngredients:
+  - tag: Patty
+    prefab: {fileID: 1222015857323508795, guid: 3f86d1d30fb8fce46aebb0e415cd5e46,
+      type: 3}
+    size: 2
+  - tag: Cheese
+    prefab: {fileID: 5722290221069952192, guid: f9c1965cab48fcf478a538ba15317b67,
+      type: 3}
+    size: 2

@@ -78,8 +78,9 @@ public class IngredientCounter : MonoBehaviour
     }
     #endregion
 
-    private void ResetCounts()
+    public void ResetCounts()
     {
+        Debug.Log("Counts reset.");
         bunSum = 0;
         pattySum = 0;
         lettuceSum = 0;
