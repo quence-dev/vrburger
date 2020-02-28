@@ -70,7 +70,7 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 2181438734857924114}
   m_StartingSelectedInteractable: {fileID: 0}
   m_OnHoverEnter:
     m_PersistentCalls:
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 8209765847536753942}
   - component: {fileID: 400872415952060564}
   - component: {fileID: 7257516105351051286}
-  - component: {fileID: 6743112517689861345}
+  - component: {fileID: 2849422782060541424}
   - component: {fileID: 1707818711003937078}
   m_Layer: 9
   m_Name: Cheese
@@ -202,7 +202,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &6743112517689861345
+--- !u!114 &2849422782060541424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,5 +289,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketInteractor: {fileID: 3808652751374290591}
-  orderTicket: {fileID: 0}
   ingredient: 1

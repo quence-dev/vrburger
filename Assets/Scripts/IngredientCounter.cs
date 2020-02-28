@@ -53,34 +53,38 @@ public class IngredientCounter : MonoBehaviour
     public void AddPatty()
     {
         pattySum++;
+        Debug.Log("Current number of patties: " + pattySum);
     }
     public void AddLettuce()
     {
         lettuceSum++;
+        Debug.Log("Current number of lettuce: " + lettuceSum);
     }
     public void AddTomato()
     {
         tomatoSum++;
+        Debug.Log("Current number of tomato: " + tomatoSum);
     }
     public void AddCheese()
     {
         cheeseSum++;
+        Debug.Log("Current number of cheese: " + cheeseSum);
     }
     public void AddPickles()
     {
         picklesSum++;
+        Debug.Log("Current number of pickles: " + picklesSum);
     }
-    //bun only ever needs to go to two
     public void AddBun()
     {
         bunSum++;
-        Debug.Log("Counting buns..." + bunSum);
+        Debug.Log("Current number of buns: " + bunSum);
     }
     #endregion
 
     public void ResetCounts()
     {
-        Debug.Log("Counts reset.");
+        Debug.Log("Ingredient totals reset.");
         bunSum = 0;
         pattySum = 0;
         lettuceSum = 0;
