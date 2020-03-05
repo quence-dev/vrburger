@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4816340069960439349}
   - component: {fileID: 4028468627924239487}
   - component: {fileID: 6333605852045475168}
-  - component: {fileID: -4110931917307610408}
+  - component: {fileID: 1076663924231573808}
   - component: {fileID: 450839753313367617}
   m_Layer: 9
   m_Name: Patty
@@ -114,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &-4110931917307610408
+--- !u!114 &1076663924231573808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,11 +354,7 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 512
-<<<<<<< HEAD
   m_AttachTransform: {fileID: 7024923322925395101}
-=======
-  m_AttachTransform: {fileID: 0}
->>>>>>> parent of 77bf0d7... FirstRefactor
   m_StartingSelectedInteractable: {fileID: 0}
   m_OnHoverEnter:
     m_PersistentCalls:

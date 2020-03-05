@@ -70,7 +70,7 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 6125340662447231236}
   m_StartingSelectedInteractable: {fileID: 0}
   m_OnHoverEnter:
     m_PersistentCalls:
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8531582768150503544}
   - component: {fileID: 6432567260478970713}
   - component: {fileID: -2156449408153264401}
-  - component: {fileID: 1343532348880625206}
+  - component: {fileID: 2441085375050854002}
   m_Layer: 9
   m_Name: Bun
   m_TagString: ingredient
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
---- !u!114 &1343532348880625206
+--- !u!114 &2441085375050854002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

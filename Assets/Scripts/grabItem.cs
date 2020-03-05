@@ -10,35 +10,50 @@ public enum IngredientType
     Lettuce,
     Patty,
     Pickles,
-    Tomato,
+    Tomato
 }
 
 [RequireComponent(typeof(XRGrabInteractable))]
 public class grabItem : MonoBehaviour
 {
-    public XRSocketInteractor socketInteractor;
     private XRGrabInteractable grabInteractable = null;
 
     public IngredientType ingredient;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
 
-        socketInteractor.socketActive = false;
+        GetComponentInChildren<XRSocketInteractor>().socketActive = false;
 
         grabInteractable.onSelectEnter.AddListener(ActivateSocket);
+        grabInteractable.onSelectExit.AddListener(DropBurger);
     }
 
     private void ActivateSocket(XRBaseInteractor interactor)
     {
-        socketInteractor.socketActive = true;
+        GetComponentInChildren<XRSocketInteractor>().socketActive = true;
+        Debug.Log("Socket activated.");
 
+
+        OnCatchItem();
+    }
+
+    private void OnCatchItem()
+    {
         //call increment function from ingredient counter
         IngredientCounter.Instance.SubIngredient(ingredient);
         OrderUI.Instance.UpdateOrderText();
+
         if (ingredient == IngredientType.Bun && (IngredientCounter.Instance.GetBunSum() == 2))
             GameMgr.Instance.CheckForCompletion();
+        
+        //ObjectPooler.Instance.IncreasePoolSize(ingredient.ToString());
+    }
+
+    private void DropBurger(XRBaseInteractor interactor)
+    {
+        Debug.LogWarning("Item dropped.");
     }
 }
