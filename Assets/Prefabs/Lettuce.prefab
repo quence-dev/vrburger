@@ -72,11 +72,7 @@ MonoBehaviour:
     m_Bits: 512
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
   m_AttachTransform: {fileID: 7698985741937567980}
-=======
-  m_AttachTransform: {fileID: 0}
->>>>>>> parent of 77bf0d7... FirstRefactor
 =======
   m_AttachTransform: {fileID: 0}
 >>>>>>> parent of 77bf0d7... FirstRefactor

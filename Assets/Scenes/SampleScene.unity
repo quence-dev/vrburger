@@ -2340,7 +2340,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1315246615}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1 &883616491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,8 +2370,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> parent of 77bf0d7... FirstRefactor
 --- !u!1 &885711972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,29 +3685,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462553402}
   m_CullTransparentMesh: 0
-<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/UpNDown.unity
 --- !u!1 &1528292771
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
 =======
-=======
->>>>>>> parent of 77bf0d7... FirstRefactor
 --- !u!1 &1541180240
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 8508008731425583670, guid: 90e0b479dd6c4c846a999e72f437d1cf,
     type: 3}
-<<<<<<< HEAD
 >>>>>>> parent of 77bf0d7... FirstRefactor:Assets/Scenes/SampleScene.unity
-=======
->>>>>>> parent of 77bf0d7... FirstRefactor
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/UpNDown.unity
   - component: {fileID: 1528292772}
   m_Layer: 0
@@ -3739,8 +3729,6 @@ Transform:
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
-=======
->>>>>>> parent of 77bf0d7... FirstRefactor
   - component: {fileID: 1541180241}
   - component: {fileID: 1541180246}
   - component: {fileID: 1541180245}
@@ -4544,7 +4532,6 @@ Transform:
   m_Father: {fileID: 1633427413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/UpNDown.unity
 --- !u!1 &1747220960
 GameObject:
@@ -4640,8 +4627,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> parent of 77bf0d7... FirstRefactor:Assets/Scenes/SampleScene.unity
-=======
->>>>>>> parent of 77bf0d7... FirstRefactor
 --- !u!1 &1823758801
 GameObject:
   m_ObjectHideFlags: 0
