@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4413539897427947147}
   - component: {fileID: 5277892187834053385}
   - component: {fileID: 424660855291699180}
-  - component: {fileID: 6659458253155755265}
+  - component: {fileID: -4911320445680709730}
   - component: {fileID: 6607092508484835108}
   m_Layer: 9
   m_Name: Tomato
@@ -114,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &6659458253155755265
+--- !u!114 &-4911320445680709730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  m_AttachTransform: {fileID: 994747185727938950}
+  m_AttachTransform: {fileID: 0}
   m_StartingSelectedInteractable: {fileID: 0}
   m_OnHoverEnter:
     m_PersistentCalls:

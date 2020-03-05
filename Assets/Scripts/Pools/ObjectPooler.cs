@@ -76,33 +76,6 @@ public class ObjectPooler : MonoBehaviour
         poolDictionary[objectTag].Enqueue(clone);
     }
 
-    public void IncreasePoolSize(string tag)
-    {
-        Pool pool = FindObjectPool(tag);
-
-
-        GameObject obj = Instantiate(pool.prefab);
-        obj.SetActive(false);
-        poolDictionary[tag].Enqueue(obj);
-        Debug.Log(pool.tag + " Pool size has been increased to: " + poolDictionary[tag].Count);
-    }
-
-    private Pool FindObjectPool(string tag)
-    {
-        if (!poolDictionary.ContainsKey(tag))
-        {
-            Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
-            //return null;
-        }
-
-        foreach (Pool pool in pools)
-        {
-            if (pool.tag.Equals(tag))
-                return pool;
-        }
-        return null;
-    }
-
     private Vector3 randSpawnLocation()
     {
         Vector3 position = new Vector3(Random.Range(-0.8f, 0.8f), 20f, Random.Range(-0.8f, 0.8f));

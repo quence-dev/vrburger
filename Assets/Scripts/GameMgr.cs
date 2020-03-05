@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 //using UnityEngine.Events;
@@ -61,26 +62,35 @@ public class GameMgr : MonoBehaviour
     //Checks whether an order is complete.
     private bool OrderIsComplete()
     {
-        if (patty <= IngredientCounter.Instance.GetPattySum() &&
-            tomato <= IngredientCounter.Instance.GetTomatoSum() &&
-            cheese <= IngredientCounter.Instance.GetCheeseSum() &&
-            lettuce <= IngredientCounter.Instance.GetLettuceSum() &&
-            pickles <= IngredientCounter.Instance.GetPicklesSum())
+        if (patty >= IngredientCounter.Instance.GetPattySum() &&
+            tomato >= IngredientCounter.Instance.GetTomatoSum() &&
+            cheese >= IngredientCounter.Instance.GetCheeseSum() &&
+            lettuce >= IngredientCounter.Instance.GetLettuceSum() &&
+            pickles >= IngredientCounter.Instance.GetPicklesSum())
         {
-            Debug.Log("Correct ingredients.");
+            Debug.Log("Correct ingredients identified.");
             return true;
         }
         else
         {
-            Debug.Log("Incorrect ingredients.");
+            Debug.Log("Order incomplete.");
             return false;
         }
+
+        /*
+        foreach (int ingredient in requiredIngredients.Values)
+        {
+            if (GetCurrentOrder().activeIngredients.Count == ingredient)
+                return true;
+        }
+        return false;
+        */
+        
     }
 
     private void SetCurrentOrderRequirements()
     {
-        Debug.Log("Setting order requirements...");
-        Orders currentOrder = orders[level];
+        Orders currentOrder = GetCurrentOrder();
 
         patty = 0;
         tomato = 0;
@@ -93,23 +103,18 @@ public class GameMgr : MonoBehaviour
             switch (activeIngredients.tag)
             {
                 case "Patty":
-                    Debug.Log("Number of " + activeIngredients.tag + " required: " + activeIngredients.size);
                     patty = activeIngredients.size;
                     break;
                 case "Tomato":
-                    Debug.Log("Number of " + activeIngredients.tag + " required: " + activeIngredients.size);
                     tomato = activeIngredients.size;
                     break;
                 case "Lettuce":
-                    Debug.Log("Number of " + activeIngredients.tag + " required: " + activeIngredients.size);
                     lettuce = activeIngredients.size;
                     break;
                 case "Cheese":
-                    Debug.Log("Number of " + activeIngredients.tag + " required: " + activeIngredients.size);
                     cheese = activeIngredients.size;
                     break;
                 case "Pickles":
-                    Debug.Log("Number of " + activeIngredients.tag + " required: " + activeIngredients.size);
                     pickles = activeIngredients.size;
                     break;
                 default:
@@ -123,43 +128,44 @@ public class GameMgr : MonoBehaviour
     {
         spawner.Instance.StopSpawn();
         ClearFallingObjects();
-        IngredientCounter.Instance.ResetCounts();
-
+        
         level++;
-        Debug.Log("(Pass) Loading Next Level....");
+        Debug.Log("Next Level....");
 
         SetCurrentOrderRequirements();
+
+        IngredientCounter.Instance.ResetCounts();
         OrderUI.Instance.NextLevelUI();
         spawner.Instance.StartSpawn();
     }
 
 
-    //Fail state for single level. Restarts level
-    private void FailLevel()
+    //Fail state for single level. Restarts?
+    private void FailLevel() 
     {
-        Debug.Log("(Fail) Restarting level... ");
         spawner.Instance.StopSpawn();
         ClearFallingObjects();
-        IngredientCounter.Instance.ResetCounts();
 
+
+        Debug.Log("Restarting level... ");
+        SetCurrentOrderRequirements();
+
+        IngredientCounter.Instance.ResetCounts();
         OrderUI.Instance.NextLevelUI();
         spawner.Instance.StartSpawn();
     }
 
     public Orders GetCurrentOrder()
     {
-        Debug.Log("Fetching current order: " + orders[level].name);
         return orders[level];
     }
 
     private void ClearFallingObjects()
     {
-        Debug.Log("Clearing falling objects from scene.");
         GameObject[] gameObjects;
         gameObjects = GameObject.FindGameObjectsWithTag("ingredient");
 
-        foreach (GameObject gameObject in gameObjects)
-        {
+        foreach (GameObject gameObject in gameObjects) {
             XRSocketInteractor tempSocket = gameObject.GetComponentInChildren<XRSocketInteractor>();
 
             if (!tempSocket.socketActive)

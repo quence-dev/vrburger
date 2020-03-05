@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 3354829700555069271}
   - component: {fileID: 3354829700555069270}
   - component: {fileID: 9114493084255487432}
-  - component: {fileID: 6849278684130901759}
+  - component: {fileID: 5551899107483570584}
   - component: {fileID: -3552554270935524753}
   m_Layer: 9
   m_Name: Pickles
@@ -436,7 +436,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &6849278684130901759
+--- !u!114 &5551899107483570584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -922,7 +922,11 @@ MonoBehaviour:
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 512
+<<<<<<< HEAD
   m_AttachTransform: {fileID: 2550001924174284509}
+=======
+  m_AttachTransform: {fileID: 0}
+>>>>>>> parent of 77bf0d7... FirstRefactor
   m_StartingSelectedInteractable: {fileID: 0}
   m_OnHoverEnter:
     m_PersistentCalls:
